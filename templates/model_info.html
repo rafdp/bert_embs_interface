@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+   <head>
+      <meta charset="utf-8">
+      <title>Toxicity analyzer</title>
+      <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+   </head>
+   {% include 'header.html' %}
+   <body>
+      <div class="model_info">
+      <h2> Model info </h2>
+      <p>
+         <a href="https://www.kaggle.com/c/jigsaw-unintended-bias-in-toxicity-classification/overview">Kaggle</a> 
+         <br>
+         The model consists of a small <a href="https://arxiv.org/abs/1810.04805">BERT</a> layer (12 attention heads, dimension 768) 
+         <br>
+         with fine-tuning on the pooling layer, and two fully-connected layers (dimensions 512 and 256) 
+         <br>
+         plus a softmax activation layer for each target. 
+         <br>
+         The model is built on Keras with Tensorflow backend, runs on a single GTX1080.
+         <br>
+         After extensive filtering, the dataset consists of 350k entries, training takes about 1.5 hours.
+         <br>
+         A modular architecture is used, which helps in trying out different models by adding folders with a Model class.
+         <br>
+         <a href="https://github.com/rafdp/bert_embs">Model repo</a>
+         <br>
+         <a href="https://github.com/rafdp/bert_embs_interface">Web interface repo</a>
+      </p>
+      </div>
+   </body>
+   {% include 'footer.html' %}
+</html>
+

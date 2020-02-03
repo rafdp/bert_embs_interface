@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+   <head>
+      <meta charset="utf-8">
+      <title>Toxicity analyzer</title>
+      <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+   </head>
+   {% include 'header.html' %}
+   <body>
+      <div class="model_info">
+      <h2> Setup guide </h2>
+      <p>
+         <a href="https://github.com/rafdp/bert_embs">Model repo</a>
+         <br>
+         <a href="https://github.com/rafdp/bert_embs_interface">Web interface repo</a>
+         <br>
+         To set up the model you will need python(>=3.6), tensorflow (1.14), pandas, numpy, bert.tokenization, keras, tensorflow_hub. 
+         <br>
+         encode.py is in charge of filtering the Kaggle dataset and tokenizing following the BERT standard. 
+         <br>
+         model_pipeline.py builds the model, trains and validates for 1 epoch.
+         <br>
+         hparams_full.json is an example of how you can set up all the parameters encode and model_pipeline might need.
+         <br>
+         predict.py takes comment.txt and predicts over it, outputs a comment_result.npy file. 
+         <br>
+         To set up the web interface you need Flask and flask-wtf.
+      </p>
+      </div>
+   </body>
+   {% include 'footer.html' %}
+</html>
+

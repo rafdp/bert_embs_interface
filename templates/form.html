@@ -1,0 +1,17 @@
+
+<div class="comment_form">
+      <form method="POST" action="{{ url_for('home') }}">
+	      {{ form.csrf_token }}
+	      {{ form.comment.label }}
+              <br/>
+	      {{ form.comment }}
+	      <br/>
+	      {{ form.toxicity_subtype() }}
+	      {{ form.toxicity_subtype.label}}
+	      <br/>
+	      {{ form.identity() }}
+	      {{ form.identity.label}}
+	      <br/>
+	      <input type="submit" value="Submit">
+</div>
+

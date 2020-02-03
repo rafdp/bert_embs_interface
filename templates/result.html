@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+   <head>
+      <meta charset="utf-8">
+      <title>Toxicity analyzer</title>
+      <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+   </head>
+   <body>
+      {% include 'header.html' %}
+      <div class="results">
+         <h2> Results: </h2>
+         {% if identity is sameas true %}
+            <h4> Identity </h4>
+            {% for item in identity_data %}
+               <li>{{ item[0] }}: {{ (item[1]*100)|round|int }}%</li>
+            {% endfor %}  
+         {% endif %}
+         {% if toxicity_subtype is sameas true %}
+            <h4> Toxicity subtype </h4>
+            {% for item in subtype_data %}
+               <li>{{ item[0] }}: {{ (item[1]*100)|round|int }}%</li>
+            {% endfor %}  
+         {% endif %}
+         <div class="toxicity_result">
+            <h2> Toxicity probability: {{ (toxicity*100)|round|int }} % </h2>
+         </div>
+      </div>
+      {% include 'form.html' %}
+   </body>
+   {% include 'footer.html' %}
+</html>
+
